@@ -15,7 +15,7 @@ namespace ClientScore.Application.Mappers
                 CPF = request.CPF,
                 Email = request.Email,
                 RendimentoAnual = request.RendimentoAnual,
-                Estado = request.Estado,
+                Estado = request.Estado.ToUpper(),
                 Telefone = TelefoneValidator.Normalize(request.Telefone),
             };
         }
