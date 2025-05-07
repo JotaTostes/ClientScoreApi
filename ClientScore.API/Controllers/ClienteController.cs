@@ -1,7 +1,6 @@
 using Asp.Versioning;
 using ClientScore.Application.DTOs;
 using ClientScore.Application.Interfaces;
-using ClientScore.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
