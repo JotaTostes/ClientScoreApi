@@ -9,6 +9,5 @@
         public decimal RendimentoAnual { get; set; }
         public string Estado { get; set; }
         public string Telefone { get; set; }
-        public string DDD { get; set; }
     }
 }

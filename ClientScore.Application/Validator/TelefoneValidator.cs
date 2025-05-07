@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace ClientScore.Application.Validator
 {
@@ -26,13 +21,7 @@ namespace ClientScore.Application.Validator
             var parte1 = match.Groups[2].Value;
             var parte2 = match.Groups[3].Value;
 
-            return $"({ddd}) {parte1}-{parte2}";
-        }
-
-        public static string ObterDDD(string telefone)
-        {
-            var match = _telefoneRegex.Match(telefone);
-            return match.Success ? match.Groups[1].Value : string.Empty;
+            return $"({ddd}){parte1}-{parte2}";
         }
     }
 }

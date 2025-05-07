@@ -30,7 +30,7 @@ namespace ClientScore.Application.Validator
 
             RuleFor(c => c.Telefone)
                 .Must(TelefoneValidator.IsValid)
-                .WithMessage("Telefone inválido. Ex: (11) 91234-5678")
+                .WithMessage("Telefone inválido. Ex: 1191234-5678")
                 .NotEmpty().WithMessage("Telefone é obrigatório.")
                 .Matches(@"^\d{10,11}$").WithMessage("Telefone deve conter DDD e número.");
         }
