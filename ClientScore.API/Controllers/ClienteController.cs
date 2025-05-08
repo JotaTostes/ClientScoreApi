@@ -19,9 +19,9 @@ namespace Api.Controllers
         }
 
         /// <summary>
-        /// Cadastrar um cliente
+        /// Cadastrar um cliente e aplicar regra de validação de score.
         /// </summary>
-        /// <param name="cliente"></param>
+        /// <param name="clienteDto">Dados do cliente para cadastrar</param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(ClienteResponseDto), StatusCodes.Status201Created)]
@@ -34,6 +34,35 @@ namespace Api.Controllers
                 return BadRequest(new { Mensagem = "Erro ao cadastrar cliente.", Erros = erros });
 
             return CreatedAtAction(nameof(Post), "", resultado);
+        }
+
+        /// <summary>
+        /// Retorna uma lista de todos clientes cadastrados
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetAll")]
+        [ProducesResponseType(typeof(List<ClienteListagemDto>), 200)]
+        public async Task<IActionResult> GetAll()
+        {
+            var clientes = await _clienteService.ObterTodosClientesAsync();
+            return Ok(clientes);
+        }
+
+        /// <summary>
+        /// Retorna cliente filtrando por CPF
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <returns></returns>
+        [HttpGet("{cpf}")]
+        [ProducesResponseType(typeof(ClienteListagemDto), 200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetByCpf(string cpf)
+        {
+            var cliente = await _clienteService.ObterPorCpfAsync(cpf);
+
+            return cliente is null
+                ? NotFound(new { Mensagem = "Cliente não encontrado." })
+                : Ok(cliente);
         }
     }
 }

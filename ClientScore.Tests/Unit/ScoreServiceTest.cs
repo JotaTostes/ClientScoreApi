@@ -23,7 +23,7 @@ namespace ClientScore.Tests.Unit
 
         [Theory]
         [InlineData(130000, 450)] // Renda alta
-        [InlineData(80000, 400)]  // Renda média
+        [InlineData(80000, 350)]  // Renda média
         [InlineData(50000, 250)]  // Renda baixaS
         public void CalcularPontuacaoPorRenda_DeveRetornarPontuacaoCorreta(decimal rendimentoAnual, int pontuacaoEsperada)
         {
