@@ -4,8 +4,6 @@ using ClientScore.Infrastructure.Context;
 using ClientScore.Infrastructure.Interfaces;
 using Infrastructure.Repositories;
 using FluentValidation;
-using Microsoft.AspNetCore.Connections;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using ClientScore.Application.Validator;
 using ClientScore.Application.DTOs;
 
@@ -15,11 +13,17 @@ namespace ClientScore.API.Configuration
     {
         public static IServiceCollection AddDependencyInjection(this IServiceCollection services)
         {
+            //DbContext
             services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
+
+            //Services
             services.AddScoped<IScoreService, ScoreService>();
             services.AddScoped<IClienteService, ClienteService>();
+
+            //Repositories
             services.AddScoped<IClienteRepository, ClienteRepository>();
 
+            //Validators
             services.AddScoped<IValidator<ClienteRequestDto>, ClienteValidator>();
             return services;
         }

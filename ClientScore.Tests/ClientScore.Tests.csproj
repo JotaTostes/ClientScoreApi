@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Unit\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ClientScore.Application\ClientScore.Application.csproj" />
     <ProjectReference Include="..\ClientScore.Infrastructure\ClientScore.Infrastructure.csproj" />
   </ItemGroup>

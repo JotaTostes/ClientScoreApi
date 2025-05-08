@@ -24,9 +24,38 @@ namespace ClientScore.Application.Mappers
         {
             return new ClienteResponseDto
             {
+                Id = cliente.Id,
                 Nome = cliente.Nome,
                 Email = cliente.Email,
                 Score = cliente.Score
+            };
+        }
+
+        public static List<ClienteListagemDto> ToListClientes(IEnumerable<Cliente> clientes)
+        {
+            return clientes.Select(c => new ClienteListagemDto
+            {
+                Id = c.Id,
+                Nome = c.Nome,
+                Email = c.Email,
+                CPF = c.CPF,
+                DataNascimento = c.DataNascimento,
+                Telefone = c.Telefone,
+                Estado = c.Estado
+            }).ToList();
+        }
+
+        public static ClienteListagemDto ToSingleCliente(Cliente cliente)
+        {
+            return new ClienteListagemDto
+            {
+                Id = cliente.Id,
+                Nome = cliente.Nome,
+                Email = cliente.Email,
+                CPF = cliente.CPF,
+                DataNascimento = cliente.DataNascimento,
+                Telefone = cliente.Telefone,
+                Estado = cliente.Estado
             };
         }
     }

@@ -8,6 +8,7 @@ namespace ClientScore.Domain.Entities
 {
     public class Cliente
     {
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public string CPF { get; set; }

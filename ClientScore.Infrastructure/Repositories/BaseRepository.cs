@@ -6,7 +6,7 @@ namespace ClientScore.Infrastructure.Repositories
 {
     public abstract class BaseRepository
     {
-        private readonly string _connectionString;
+        protected readonly string _connectionString;
 
         protected BaseRepository(IConfiguration configuration)
         {

@@ -11,5 +11,7 @@ namespace ClientScore.Application.Interfaces
     public interface IClienteService
     {
         Task<(ClienteResponseDto? clienteInserido, List<string> Erros)> CadastrarClienteAsync(ClienteRequestDto request);
+        Task<List<ClienteListagemDto>> ObterTodosClientesAsync();
+        Task<ClienteListagemDto?> ObterPorCpfAsync(string cpf);
     }
 }
